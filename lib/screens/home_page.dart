@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../providers/projects_provider.dart';
 import '../widgets/project_card.dart';
+import '../widgets/bottom_bar.dart';
 
 class HomePageScreen extends StatelessWidget {
   HomePageScreen({Key? key}) : super(key: key);
@@ -24,13 +25,17 @@ class HomePageScreen extends StatelessWidget {
           elevation: 0,
           title: const Text('Project Partner'),
         ),
-        body: ListView.builder(itemBuilder: (ctx, index) {
-          return ProjectCard(
-            title: projectList[index].title,
-            description: projectList[index].description,
-            imageUrl: projectList[index].image,
-          );
-        }),
+        body: ListView.builder(
+          itemBuilder: (ctx, index) {
+            return ProjectCard(
+              title: projectList[index].title,
+              description: projectList[index].description,
+              imageUrl: projectList[index].image,
+            );
+          },
+          itemCount: projectList.length,
+        ),
+        bottomNavigationBar: const ProjectNavBar(),
       ),
     );
   }
