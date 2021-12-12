@@ -33,6 +33,8 @@ class _ProjectNavBarState extends State<ProjectNavBar> {
         ),
       ],
       selectedItemColor: Colors.amber,
+      backgroundColor: Colors.white,
+      elevation: 0,
       onTap: updateIndex,
     );
   }

@@ -28,9 +28,10 @@ class HomePageScreen extends StatelessWidget {
         body: ListView.builder(
           itemBuilder: (ctx, index) {
             return ProjectCard(
-              title: projectList[index].title,
+              mytitle: projectList[index].title,
               description: projectList[index].description,
               imageUrl: projectList[index].image,
+              projectId: projectList[index].id,
             );
           },
           itemCount: projectList.length,
