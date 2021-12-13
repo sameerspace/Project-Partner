@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class ProfileCard extends StatelessWidget {
   final String imageUrl;
   final String name;
+  final String role;
   const ProfileCard({
     Key? key,
     required this.imageUrl,
     required this.name,
+    required this.role,
   }) : super(key: key);
 
   @override
@@ -21,10 +23,11 @@ class ProfileCard extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(16.0),
       ),
-      height: 100,
+      height: 120,
       width: 100,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
@@ -40,6 +43,14 @@ class ProfileCard extends StatelessWidget {
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            role,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
             ),
           ),
         ],

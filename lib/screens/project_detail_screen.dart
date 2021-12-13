@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectpartner/providers/projects_provider.dart';
 import '../widgets/bottom_bar.dart';
 import '../widgets/tag_card.dart';
 import '../widgets/profile_card.dart';
@@ -72,7 +73,7 @@ class ProjectDetailScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                         child: Text(
                           args['description'],
                           style: const TextStyle(
@@ -100,34 +101,13 @@ class ProjectDetailScreen extends StatelessWidget {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
-                            children: const [
-                              ProfileCard(
-                                imageUrl:
-                                    'https://image.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-260nw-1617540484.jpg',
-                                name: 'Tina',
-                              ),
-                              ProfileCard(
-                                imageUrl:
-                                    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-                                name: 'Alex',
-                              ),
-                              ProfileCard(
-                                imageUrl:
-                                    'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-                                name: 'Mary',
-                              ),
-                              ProfileCard(
-                                imageUrl:
-                                    'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-                                name: 'Khan',
-                              ),
-                              ProfileCard(
-                                imageUrl:
-                                    'https://image.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-260nw-1617540484.jpg',
-                                name: 'Tina',
-                              ),
-                            ],
-                          ),
+                              children: dummyUsers
+                                  .map((user) => ProfileCard(
+                                        name: user.name,
+                                        imageUrl: user.imageUrl,
+                                        role: user.role,
+                                      ))
+                                  .toList()),
                         ),
                       ),
                       const JoinButton(),
