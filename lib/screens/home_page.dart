@@ -6,7 +6,7 @@ import '../widgets/bottom_bar.dart';
 
 class HomePageScreen extends StatelessWidget {
   HomePageScreen({Key? key}) : super(key: key);
-  final List<Project> item = projectList;
+  final List<Project> item = [];
 
   @override
   Widget build(BuildContext context) {
